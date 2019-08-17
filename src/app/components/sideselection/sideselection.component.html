@@ -1,0 +1,71 @@
+<div class="selectionRoad">
+<mat-radio-group
+  class="radio-group"
+  [(ngModel)]="selectRoadType.type"
+  (change)="selectRoadTypeChange($event)">
+  <mat-radio-button class="radio-button"  [value]="'roadsection'">
+        Road Section        
+  </mat-radio-button>
+    <mat-list role="list" class="mat-list-base-1">
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox1()" [disabled]="selectRoadType.type!='roadsection'" [(ngModel)]="selectRoadType.roadsection.province"><label [ngStyle]="getcolorlegend('#fc3ff2')" class="color-legend">&nbsp;</label>&nbsp;Province</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox1()" [disabled]="selectRoadType.type!='roadsection'" [(ngModel)]="selectRoadType.roadsection.city"><label [ngStyle]="getcolorlegend('#9ef740')" class="color-legend">&nbsp;</label>&nbsp;City</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox1()" [disabled]="selectRoadType.type!='roadsection'" [(ngModel)]="selectRoadType.roadsection.municipal"><label [ngStyle]="getcolorlegend('#5295f2')" class="color-legend">&nbsp;</label>&nbsp;Municipal</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox1()" [disabled]="selectRoadType.type!='roadsection'" [(ngModel)]="selectRoadType.roadsection.barangay"><label [ngStyle]="getcolorlegend('#f2bf52')" class="color-legend">&nbsp;</label>&nbsp;Barangay</mat-checkbox></mat-list-item>
+    </mat-list>
+    <mat-radio-button class="radio-button"  [value]="'roadsurfacetype'">
+        Surface Type
+    </mat-radio-button>
+    <mat-checkbox class="checkbox-location"
+        [(ngModel)]="selectRoadType.roadsurfacetype.province"
+        [disabled]="selectRoadType.type!='roadsurfacetype'"
+        [(indeterminate)]="selectRoadType.roadsurfacetype.province_indeterminate"
+        (change)="setCheckbox2($event,'province_')">Province</mat-checkbox>  
+    <mat-list role="list" class="mat-list-base-2">
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'province_')" [disabled]="selectRoadType.type!='roadsurfacetype'" [(ngModel)]="selectRoadType.roadsurfacetype.province_asphalt"><label [ngStyle]="getcolorlegend('#5a6068')" class="color-legend">&nbsp;</label>&nbsp;Asphalt</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'province_')" [disabled]="selectRoadType.type!='roadsurfacetype'" [(ngModel)]="selectRoadType.roadsurfacetype.province_concrete"><label [ngStyle]="getcolorlegend('#f29626')" class="color-legend">&nbsp;</label>&nbsp;Concrete</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'province_')" [disabled]="selectRoadType.type!='roadsurfacetype'" [(ngModel)]="selectRoadType.roadsurfacetype.province_earth"><label [ngStyle]="getcolorlegend('#876f1b')" class="color-legend">&nbsp;</label>&nbsp;Earth</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'province_')" [disabled]="selectRoadType.type!='roadsurfacetype'" [(ngModel)]="selectRoadType.roadsurfacetype.province_gravel"><label [ngStyle]="getcolorlegend('#26bff1')" class="color-legend">&nbsp;</label>&nbsp;Gravel</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'province_')" [disabled]="selectRoadType.type!='roadsurfacetype'" [(ngModel)]="selectRoadType.roadsurfacetype.province_mixed"><label [ngStyle]="getcolorlegend('#357c31')" class="color-legend">&nbsp;</label>&nbsp;Mixed</mat-checkbox></mat-list-item>
+    </mat-list>
+    <mat-checkbox class="checkbox-location"
+        [(ngModel)]="selectRoadType.roadsurfacetype.city"
+        [disabled]="selectRoadType.type!='roadsurfacetype'"
+        [(indeterminate)]="selectRoadType.roadsurfacetype.city_indeterminate"
+        (change)="setCheckbox2($event,'city_')">City</mat-checkbox>  
+    <mat-list role="list" class="mat-list-base-2">
+        <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'city_')" [disabled]="selectRoadType.type!='roadsurfacetype'" [(ngModel)]="selectRoadType.roadsurfacetype.city_asphalt"><label [ngStyle]="getcolorlegend('#5a6068')" class="color-legend">&nbsp;</label>&nbsp;Asphalt</mat-checkbox></mat-list-item>
+        <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'city_')" [disabled]="selectRoadType.type!='roadsurfacetype'" [(ngModel)]="selectRoadType.roadsurfacetype.city_concrete"><label [ngStyle]="getcolorlegend('#f29626')" class="color-legend">&nbsp;</label>&nbsp;Concrete</mat-checkbox></mat-list-item>
+        <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'city_')" [disabled]="selectRoadType.type!='roadsurfacetype'" [(ngModel)]="selectRoadType.roadsurfacetype.city_earth"><label [ngStyle]="getcolorlegend('#876f1b')" class="color-legend">&nbsp;</label>&nbsp;Earth</mat-checkbox></mat-list-item>
+        <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'city_')" [disabled]="selectRoadType.type!='roadsurfacetype'" [(ngModel)]="selectRoadType.roadsurfacetype.city_gravel"><label [ngStyle]="getcolorlegend('#26bff1')" class="color-legend">&nbsp;</label>&nbsp;Gravel</mat-checkbox></mat-list-item>
+        <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'city_')" [disabled]="selectRoadType.type!='roadsurfacetype'" [(ngModel)]="selectRoadType.roadsurfacetype.city_mixed"><label [ngStyle]="getcolorlegend('#357c31')" class="color-legend">&nbsp;</label>&nbsp;Mixed</mat-checkbox></mat-list-item>
+    </mat-list>      
+  <mat-radio-button class="radio-button"  [value]="'roadcondition'">
+        Road Condition
+  </mat-radio-button>
+  <mat-checkbox class="checkbox-location"
+        [(ngModel)]="selectRoadType.roadcondition.province"
+        [disabled]="selectRoadType.type!='roadcondition'"
+        [(indeterminate)]="selectRoadType.roadcondition.province_indeterminate"
+        (change)="setCheckbox2($event,'province_')">Province
+    </mat-checkbox>  
+  <mat-list role="list" class="mat-list-base-2">
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'province_')" [disabled]="selectRoadType.type!='roadcondition'" [(ngModel)]="selectRoadType.roadcondition.province_new"><label [ngStyle]="getcolorlegend('#e809c2')" class="color-legend">&nbsp;</label>&nbsp;New</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'province_')" [disabled]="selectRoadType.type!='roadcondition'" [(ngModel)]="selectRoadType.roadcondition.province_good"><label [ngStyle]="getcolorlegend('#10e809')" class="color-legend">&nbsp;</label>&nbsp;Good</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'province_')" [disabled]="selectRoadType.type!='roadcondition'" [(ngModel)]="selectRoadType.roadcondition.province_fair"><label [ngStyle]="getcolorlegend('#5492f7')" class="color-legend">&nbsp;</label>&nbsp;Fair</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'province_')" [disabled]="selectRoadType.type!='roadcondition'" [(ngModel)]="selectRoadType.roadcondition.province_bad"><label [ngStyle]="getcolorlegend('#f2811f')" class="color-legend">&nbsp;</label>&nbsp;Bad</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'province_')" [disabled]="selectRoadType.type!='roadcondition'" [(ngModel)]="selectRoadType.roadcondition.province_poor"><label [ngStyle]="getcolorlegend('#b70303')" class="color-legend">&nbsp;</label>&nbsp;Poor</mat-checkbox></mat-list-item>
+  </mat-list>
+  <mat-checkbox class="checkbox-location"
+        [(ngModel)]="selectRoadType.roadcondition.city"
+        [disabled]="selectRoadType.type!='roadcondition'"
+        [(indeterminate)]="selectRoadType.roadcondition.city_indeterminate"
+        (change)="setCheckbox2($event,'city_')">City</mat-checkbox>  
+  <mat-list role="list" class="mat-list-base-2">
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'city_')" [disabled]="selectRoadType.type!='roadcondition'" [(ngModel)]="selectRoadType.roadcondition.city_new"><label [ngStyle]="getcolorlegend('#e809c2')" class="color-legend">&nbsp;</label>&nbsp;New</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'city_')" [disabled]="selectRoadType.type!='roadcondition'" [(ngModel)]="selectRoadType.roadcondition.city_good"><label [ngStyle]="getcolorlegend('#10e809')" class="color-legend">&nbsp;</label>&nbsp;Good</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'city_')" [disabled]="selectRoadType.type!='roadcondition'" [(ngModel)]="selectRoadType.roadcondition.city_fair"><label [ngStyle]="getcolorlegend('#5492f7')" class="color-legend">&nbsp;</label>&nbsp;Fair</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'city_')" [disabled]="selectRoadType.type!='roadcondition'" [(ngModel)]="selectRoadType.roadcondition.city_bad"><label [ngStyle]="getcolorlegend('#f2811f')" class="color-legend">&nbsp;</label>&nbsp;Bad</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox3($event,'city_')" [disabled]="selectRoadType.type!='roadcondition'" [(ngModel)]="selectRoadType.roadcondition.city_poor"><label [ngStyle]="getcolorlegend('#b70303')" class="color-legend">&nbsp;</label>&nbsp;Poor</mat-checkbox></mat-list-item>
+  </mat-list>      
+</mat-radio-group>
+</div>

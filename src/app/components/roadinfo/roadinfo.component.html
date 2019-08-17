@@ -1,0 +1,114 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th colspan="2">
+                Road Section
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Road Id</td>
+        <td>{{ roadData.r_id }}</td>
+    </tr>
+    <tr>
+        <td>Road Name</td>
+        <td>{{ roadData.r_name }}</td>
+    </tr>
+    <tr>
+        <td>Road Length</td>
+        <td>{{ roadData.length || "" }} km</td>
+    </tr>
+    <tr>
+        <td>Direction Flow</td>
+        <td>{{ roadData.dirflow || "" }}</td>
+    </tr>
+    <tr>
+        <td>Region Code</td>
+        <td>{{ roadData.region }}</td>
+    </tr> 
+    <tr>
+        <td>Province Code</td>
+        <td>{{ roadData.province_code }}</td>
+    </tr> 
+    <tr>
+        <td>City/Mun Code</td>
+        <td>{{ roadData.citymuncode }}</td>
+    </tr>                         
+    <tr>
+        <td>RROW</td>
+        <td>{{ roadData.rrow || ""}} m</td>
+    </tr>       
+    <tr>
+        <td>Importance</td>
+        <td>{{ roadData.r_importance }}</td>
+    </tr>
+    <tr>
+        <td>Terrain</td>
+        <td>{{ roadData.terrain }}</td>
+    </tr>
+    <tr>
+        <td>Class</td>
+        <td>{{ roadData.r_class }}</td>
+    </tr>
+</tbody>              
+</table>
+<table *ngIf="roadCarriageway.SegmentID && roadCarriageway.SegmentID!==''" class="table table-bordered">
+        <thead>
+            <tr>
+                <th colspan="2">
+                    Road Segment
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Section ID</td>
+            <td>{{ roadCarriageway.SegmentID }}</td>
+        </tr>
+        <tr>
+            <td>Start</td>
+            <td>km Post: {{ roadCarriageway.LRPStartKm }},&nbsp;{{ roadCarriageway.LRPStartDi}}m </td>
+        </tr>
+        <tr>
+            <td>End</td>
+            <td>km Post: {{ roadCarriageway.LRPEndKmPo }},&nbsp;{{ roadCarriageway.LRPEndDisp}}m</td>
+        </tr>
+        <tr>
+            <td>Lane Width Left</td>
+            <td>{{ roadCarriageway.LaneWidthL }}m</td>
+        </tr>
+        <tr>
+            <td>Lane Width Right</td>
+            <td>{{ roadCarriageway.LaneWidthR }}m</td>
+        </tr>
+        <tr>
+            <td>No. of Lanes</td>
+            <td>{{ roadCarriageway.NumLanes }}</td>
+        </tr>        
+        <tr>
+            <td>Length</td>
+            <td>{{ roadCarriageway.SegmentLen }}km</td>
+        </tr>
+        <tr>
+            <td>Surface Type</td>
+            <td>{{ roadCarriageway.SurfaceTyp }}</td>
+        </tr>
+        <tr>
+            <td>Condition</td>
+            <td>{{ roadCarriageway.SegmentCon }}</td>
+        </tr>
+        <tr>
+            <td>Pavement Type</td>
+            <td>{{ roadCarriageway.PavementTy }}</td>
+        </tr>
+        <tr>
+            <td>Pavement Thickness</td>
+            <td>{{ roadCarriageway.PavementThickness }}</td>
+        </tr>
+        <tr>
+            <td>Pavement Strength</td>
+            <td>{{ roadCarriageway.PavementStrength }}</td>
+        </tr>
+    </tbody>              
+    </table>

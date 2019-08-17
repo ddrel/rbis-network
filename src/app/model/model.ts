@@ -1,0 +1,31 @@
+export interface road {
+        environment:any,
+        region:any,
+        citymuncode:any,
+        length:any,
+        province_code:any,
+        rrow:any,
+        r_class:any,
+        r_id:any,
+        r_importance:any,
+        r_name:any,
+        terrain:any,
+        dirflow:any
+}
+export interface segment{
+    R_ID:any,
+    SegmentID:any,
+    SurfaceTyp:any,
+    SegmentCon:any,
+    SegmentLen:any,
+    PavementTy:any,
+    LaneWidthL:any,
+    LaneWidthR:any,
+    NumLanes:any,
+    LRPEndDisp:any,
+    LRPEndKmPo:any,
+    LRPStartDi:any,
+    LRPStartKm:any,
+    PavementThickness:any,
+    PavementStrength:any
+}

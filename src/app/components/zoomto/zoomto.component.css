@@ -1,0 +1,20 @@
+.zoomto-form .mat-radio-outer-circle{border-color:#fff}
+.zoomto-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    color:#fff;
+}
+.search-full-width {
+    width: 100%;
+}
+.zoomto-form .zoomto-select{font-size: 14px;}
+.mat-input-element {font-size:12px !important;}
+.mat-option{font-size:12px;height: 35px;color: #fff;background-color: #000;}
+.mat-option:hover{background-color: #444}
+.mat-option.mat-selected:not(.mat-active):not(:hover):not(.mat-option-disabled) {
+    color: #fff;
+    background-color: #222;}
+.cdk-overlay-pane .mat-autocomplete-panel{background-color: #444 !important}   
+.mat-optgroup-label {background-color: #2f77f5;line-height : 30px !important;height: 30px !important;} 
+.mat-option{line-height: 31px !important;height: 31px !important;}

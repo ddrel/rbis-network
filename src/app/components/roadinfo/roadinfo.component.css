@@ -1,0 +1,10 @@
+.table{background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    margin-bottom: 0}
+.table thead{background-color: #2f77f5}    
+.table td, .table th {
+        padding: 0.30rem;
+        padding-left: 7px;
+    }    
+.table td:first-child{width:100px;}    

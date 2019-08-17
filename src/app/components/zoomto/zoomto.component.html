@@ -1,0 +1,12 @@
+<form class="zoomto-form">
+    <mat-form-field class="search-full-width">
+        <input type="text" matInput placeholder="Zoom to" [formControl]="locationGroup"  [matAutocomplete]="autoGroup">
+        <mat-autocomplete #autoGroup="matAutocomplete">
+        <mat-optgroup *ngFor="let group of locationsGroup" [label]="group.type">
+            <mat-option (click)="selected(loc)" *ngFor="let loc of group.location" [value]="loc.name">
+            {{loc.name}}
+            </mat-option>
+        </mat-optgroup>
+    </mat-autocomplete>
+    </mat-form-field>
+</form>

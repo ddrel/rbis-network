@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  geoserver:"https://www.rbis-roadnetwork.com",
+  road:"https://rest-roadnetwork.mybluemix.net"
 };
 
 /*

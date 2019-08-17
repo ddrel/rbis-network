@@ -1,0 +1,27 @@
+.tool-fill-remaining-space {    flex: 1 1 auto;}
+.tool-search{width:300px;}
+.tool-zoomto{width:250px;}
+.tool-spacer{width:30px;}
+.row{margin-left:0px;margin-right:0px;}  
+.row > div{padding:0;margin-left:0px;margin-right:0px;}
+.row .col-md-none{display:none;}
+.row .col-md-block{display:block;}
+body .mat-toolbar-single-row {
+    height: 49px;
+    background-color:#000;
+    color: #0763b3;
+    font-size: 1.2em;
+}
+
+.road-info{overflow-y: auto;height:93vh}
+.toggle-roadinfo{    width: 30px;
+    height: 30px;
+    border: solid;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    z-index: 999999;
+    color: #d40606;
+    border-radius: 4px;
+    cursor: pointer;}
+.toggle-roadinfo:hover{color:#f04d4d}    

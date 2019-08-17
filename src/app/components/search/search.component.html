@@ -1,0 +1,10 @@
+<form class="search-form">
+    <mat-form-field class="search-full-width">
+        <input type="text" (keyup)="onchange($event)" placeholder="Search road" aria-label="Number" matInput [formControl]="searchCtrl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+        <mat-option (click)="selected(result)"  *ngFor="let result of searchResult" [value]="result.text">
+            {{ result.text }}
+        </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>

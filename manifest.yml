@@ -1,0 +1,5 @@
+applications:
+- name: rbis-roadnetwork
+  buildpack: staticfile_buildpack
+  path: .
+  memory: 2048M

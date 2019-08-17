@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;background-color:#dedfe0 }
+
+.mat-radio-label-content {color:#5e6163;font-weight: 600}
+.mat-checkbox-layout .mat-checkbox-label {color:#5e6163;font-weight: 500}
+/*
+
+.mat-radio-outer-circle {
+    border-color: #f8f9fa;
+}
+*/
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple{background-color:#2788e8}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {border-color: #2788e8;}
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color:  #2788e8;;
+}
+
+
