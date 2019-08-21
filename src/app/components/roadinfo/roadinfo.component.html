@@ -1,4 +1,51 @@
-<table class="table table-bordered">
+<table class="table table-bordered" *ngIf="brgyMuni">
+    <thead>
+        <tr>
+            <th colspan="2">
+                Road
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Road name</td>
+        <td>{{ brgyMuni.R_Name }}</td>
+    </tr>
+    <tr>
+        <td>Brgy. name</td>
+        <td>{{ brgyMuni.Brgy_Name }}</td>
+    </tr>
+    <tr>
+        <td>Municipal name</td>
+        <td>{{ brgyMuni.City_MUN }}</td>
+    </tr>
+    <tr>
+        <td>Class</td>
+        <td>{{ brgyMuni.R_Class }}</td>
+    </tr>
+    <tr>
+        <td>Condition</td>
+        <td>{{ brgyMuni.R_Con }}</td>
+    </tr>
+    <tr>
+        <td>Importance</td>
+        <td>{{ brgyMuni.R_Imp }}</td>
+    </tr>
+    <tr>
+        <td>Lenght</td>
+        <td>{{ brgyMuni.R_Length }} km</td>
+    </tr>
+    <tr>
+        <td>Lenght</td>
+        <td>{{ brgyMuni.R_Width }}m</td>
+    </tr>
+    <tr>
+        <td>Surface type</td>
+        <td>{{ brgyMuni.S_Type }}</td>
+    </tr>
+    </tbody>
+</table>
+<table class="table table-bordered" *ngIf="brgyMuni==null">
     <thead>
         <tr>
             <th colspan="2">
@@ -53,7 +100,7 @@
     </tr>
 </tbody>              
 </table>
-<table *ngIf="roadCarriageway.SegmentID && roadCarriageway.SegmentID!==''" class="table table-bordered">
+<table *ngIf="roadCarriageway.SegmentID && roadCarriageway.SegmentID!=='' && brgyMuni==null" class="table table-bordered">
         <thead>
             <tr>
                 <th colspan="2">

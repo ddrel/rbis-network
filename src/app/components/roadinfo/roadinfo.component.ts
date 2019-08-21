@@ -9,6 +9,16 @@ import { road,segment } from '../../model/model';
 })
 export class RoadinfoComponent implements OnInit {
   selectionData:any
+  brgyMuni:any = {R_Name:"",
+                  Brgy_Name:"",
+                  City_MUN:"",
+                  R_Class:"",
+                  R_Con:"",
+                  R_Imp:"",
+                  R_Length:"",
+                  R_Width:"",
+                  S_Type:""
+                };
   roadData:road = {environment:"",
                     region:"",
                     citymuncode:"",
@@ -56,8 +66,8 @@ export class RoadinfoComponent implements OnInit {
   }
   
   getdata(e){
-    console.log(e);
     if(e && e.SegmentID){
+      this.brgyMuni =  null;
       this.apiservice.getRoad(e.r_id).then(d=>{
         this.roadData = this.transform(d);
         d.SegmentID = e.SegmentID || null;
@@ -66,6 +76,7 @@ export class RoadinfoComponent implements OnInit {
         this.selectedRoadChange.emit(d);
       });
     }else if(e && e.r_id){
+      this.brgyMuni =  null;
       this.apiservice.getRoad(e.r_id).then(d=>{        
         this.roadData = this.transform(d);
         d.SegmentID = e.SegmentID || null;
@@ -74,6 +85,10 @@ export class RoadinfoComponent implements OnInit {
         this.roadCarriageway = this.transformCarriageway({}) 
         this.selectedRoadChange.emit(d);
       });
+    }else if(e && e.brgyMuni){
+      this.brgyMuni = e;
+      this.brgyMuni.R_Length = parseFloat(e.R_Length).toFixed(3)
+      this.selectedRoadChange.emit(this.brgyMuni);
     }
   }
 

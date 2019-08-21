@@ -17,8 +17,8 @@ export class MapComponent implements OnInit,AfterViewInit {
   map;
   layerRoad:any;
   grouplayers:any=[];
-  selectionData:any;
-  selectionRoadData:any;
+  selectionData:any={};
+  selectionRoadData:any={};
   selectionzoomData:any;
   currentLayer:string="";
   selectedRoadLayer:any;
@@ -36,7 +36,7 @@ export class MapComponent implements OnInit,AfterViewInit {
   }
 
   @Input()
-  get roadData() {
+  get roadData():any {
     return this.selectionRoadData;
   }
   @Output() RoadeDataChange: EventEmitter<any> = new EventEmitter<any>();
@@ -84,9 +84,8 @@ export class MapComponent implements OnInit,AfterViewInit {
     }
 
   }
-  roadDataChanged(e){ 
+  roadDataChanged(e){     
     /**/
-    
     //console.log(this.selectionData.type)
     if(e && e.geometry && (e.fromsearch || this.selectionData.type==roadclassification.roadsection || this.selectionData.type==roadclassification.none)){
       if(this.selectedRoadSegmentGroupLayer){
@@ -158,6 +157,29 @@ export class MapComponent implements OnInit,AfterViewInit {
       }
     }
 
+
+      if(e && e.brgyMuni){
+        if(this.selectedRoadSegmentGroupLayer){
+          this.map.removeLayer(this.selectedRoadSegmentGroupLayer)
+        };
+       
+        if(this.selectedRoadLayer){this.map.removeLayer(this.selectedRoadLayer);} 
+        /*
+        try{
+          
+          let bbox = turf.bbox(e.geometry);
+          this.selectedRoadLayer = this.mapservice.L().geoJSON(e.geometry, {
+              style: this.mapservice.style("#0a0a00")
+              }).addTo(this.map)
+              this.map.fitBounds([
+                [bbox[1],bbox[0]],
+                [bbox[3],bbox[2]]
+                ])
+        }catch(e){
+
+        }
+        */
+      }
     
   }
 
@@ -209,15 +231,41 @@ export class MapComponent implements OnInit,AfterViewInit {
     return  turf.buffer(linestring, 0.004, {units: 'kilometers'});
     
   }
-  selectRoad(e){
+  selectRoad(e){    
     if(e.layer.properties.SegmentID){      
       this.selectedRoadChange.emit({r_id:e.layer.properties.R_ID,SegmentID:e.layer.properties.SegmentID})
     }else if(e.layer.properties.R_ID){
       this.selectedRoadChange.emit({r_id:e.layer.properties.R_ID})
+    }else{    
+          let bm = e.layer.properties;
+              bm.brgyMuni = true;
+              /*
+              let latlngs = e.layer._parts[0].map(pt=>{
+                let latlng = this.map.layerPointToLatLng(pt)  
+                  return [latlng.lng,latlng.lat];
+              })*/
+            
+              console.log(e);
+              this.map.setView(e.latlng,15)
+              //bm.geometry = this.bufferedLine(latlngs);
+              
+          //this.map.fitBounds(e.layer.getBounds())              
+          this.selectedRoadChange.emit(bm)
     }
   }
 
+  pathToAbsolute(path) {
+    let NUM_POINTS = path.getTotalLength()
+    let len = path.getTotalLength();
+    let points = [];
 
+      for (var i=0; i < NUM_POINTS; i++) {
+          var pt = path.getPointAtLength(i * len / (NUM_POINTS-1));
+          points.push([pt.x, pt.y]);
+      }
+
+      return points;
+  }
   constructor(private mapservice:MapService,private apiservice:ApiService) {
     let _options =  this.mapservice.OptionsVector()
     this.layerRoad = { 
@@ -280,9 +328,9 @@ export class MapComponent implements OnInit,AfterViewInit {
 
     let layerControl = this.mapservice.L().control.layers( base_maps,null,{ position: 'topleft' });
     layerControl.addTo(this.map);    
+
   }
   ngOnInit() {
-   
   }
 
 }
