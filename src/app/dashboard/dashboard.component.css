@@ -25,3 +25,24 @@ body .mat-toolbar-single-row {
     border-radius: 4px;
     cursor: pointer;}
 .toggle-roadinfo:hover{color:#f04d4d}    
+
+.sidenav-container {
+    height: 100%;
+  }
+  
+  .sidenav {
+    width: 200px;
+  }
+  
+  .sidenav .mat-toolbar {
+    background: inherit;
+  }
+  
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  .tool-text-md{background-color:#000;padding-left:25px;font-size: 14px;}
+.mat-input-element {font-size:12px !important;}
+.mat-form-field-appearance-legacy .mat-form-field-label {color:#fff}

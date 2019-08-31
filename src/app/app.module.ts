@@ -25,6 +25,7 @@ import { SideselectionComponent } from './components/sideselection/sideselection
 import { SearchComponent } from './components/search/search.component';
 import { RoadinfoComponent } from './components/roadinfo/roadinfo.component';
 import { ZoomtoComponent } from './components/zoomto/zoomto.component';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ZoomtoComponent } from './components/zoomto/zoomto.component';
     MatAutocompleteModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule 
+    MatInputModule,
+    FlexLayoutModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
