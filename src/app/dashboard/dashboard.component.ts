@@ -1,6 +1,9 @@
-import { Component, OnInit,ViewEncapsulation ,ChangeDetectorRef} from '@angular/core';
+import { Component, OnInit,ViewEncapsulation ,ChangeDetectorRef,AfterViewInit} from '@angular/core';
 import { roadclassification } from '../enums/enums.enum';
 import { RoadSelection } from '../class/class';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable,of as observableOf } from 'rxjs';
+import { map, share } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +11,12 @@ import { RoadSelection } from '../class/class';
   styleUrls: ['./dashboard.component.css'],
   encapsulation:ViewEncapsulation.None
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit,AfterViewInit {
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  .pipe(
+    map(result => result.matches),
+    share()
+  );
   checked:boolean=false;
   roadSelection:any = new RoadSelection()
   selectRoadType:any = this.roadSelection.select();                                
@@ -29,10 +37,17 @@ export class DashboardComponent implements OnInit {
   zoomData:any;
   viewport:any = {left:'col-md-12 col-md-block',right:'col-md-none'};
 
-  constructor(private cdr:ChangeDetectorRef) { }
+  constructor(private cdr:ChangeDetectorRef,private breakpointObserver: BreakpointObserver) {
+    this.isHandset$ = observableOf(false);
+   }
 
+  
   ngOnInit() {
     //this.cdr.detectChanges();
+  
+  }
+  ngAfterViewInit(){
+    //
   }
 
   zoomDataChange(e:any){

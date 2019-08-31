@@ -1,36 +1,60 @@
-<mat-toolbar class="shadow">
-    <span>LOCAL ROAD NETWORK</span>
-    <!-- This fills the remaining space of the current row -->
-    <span class="tool-fill-remaining-space"></span>    
-    <span class="tool-zoomto">
-        <app-zoomto (zoomedChange)="zoomDataChange($event)"></app-zoomto>
-    </span>
-    <span class="tool-spacer">&nbsp;</span>
-    <span class="tool-search">                 
-            <app-search (selectedChange)="getSearchSelected($event)"></app-search>
-            <!--<mat-slide-toggle (change)="toggleChange($event)"></mat-slide-toggle>-->
-    </span>
-    <span class="toobar-edge-right"></span>
-  </mat-toolbar>
-  <div class="content">
-      <div class="row">
-          <div class="col-md-2">
-              <app-sideselection (toggleDataChange)="event_changedata($event)"></app-sideselection>
-          </div>
-          <div class="col-md-10">
-                <div class="row">
-                    <div class="{{ viewport.left }}">
-                            <app-map (selectedRoadChange)="getSearchSelected($event)" [(zoomData)]="zoomData" [(data)] = "selectRoadType" [(roadData)]="selectedRoad"></app-map>
-                            <div class="toggle-roadinfo" *ngIf="checked" (click)="toggle()">
-                                <i class="material-icons">
-                                        cancel
-                                </i>
-                            </div>  
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false"        >
+       <mat-toolbar>Menu Layer</mat-toolbar>
+        <app-sideselection (toggleDataChange)="event_changedata($event)"></app-sideselection>
+    </mat-sidenav>
+<mat-sidenav-content>
+        <mat-toolbar class="shadow">
+            <button
+                type="button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                (click)="drawer.toggle()"
+                >
+                <!--*ngIf="isHandset$ | async"-->
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span>LOCAL ROAD NETWORK</span>
+            <!-- This fills the remaining space of the current row -->
+            <span class="tool-fill-remaining-space"></span>    
+            <span fxShow="true" fxHide.lt-md class="tool-zoomto">
+                <app-zoomto (zoomedChange)="zoomDataChange($event)"></app-zoomto>
+            </span>
+            <span class="tool-spacer">&nbsp;</span>
+            <span fxShow="true" fxHide.lt-md class="tool-search">                 
+                    <app-search (selectedChange)="getSearchSelected($event)"></app-search>
+                    <!--<mat-slide-toggle (change)="toggleChange($event)"></mat-slide-toggle>-->
+            </span>
+            <span class="toobar-edge-right"></span>
+            </mat-toolbar>            
+            <div class="tool-text-md" fxShow="true" fxHide.lg>
+                    <app-zoomto (zoomedChange)="zoomDataChange($event)"></app-zoomto>
+            </div>    
+            <div class="tool-text-md" fxShow="true" fxHide.lg>
+                    <app-search (selectedChange)="getSearchSelected($event)"></app-search>
+            </div>
+    <!-- Add Content Here -->
+        <div class="content">
+            <div class="row">          
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="{{ viewport.left }}">
+                                <app-map (selectedRoadChange)="getSearchSelected($event)" [(zoomData)]="zoomData" [(data)] = "selectRoadType" [(roadData)]="selectedRoad"></app-map>
+                                <div class="toggle-roadinfo" *ngIf="checked" (click)="toggle()">
+                                    <i class="material-icons">
+                                            cancel
+                                    </i>
+                                </div>  
+                        </div>
+                        <div class="road-info {{ viewport.right }}">                          
+                                <app-roadinfo (selectedRoadChange)="getSelectedRoad($event)" [(data)]="searchSelected"></app-roadinfo>
+                        </div>
                     </div>
-                    <div class="road-info {{ viewport.right }}">                          
-                            <app-roadinfo (selectedRoadChange)="getSelectedRoad($event)" [(data)]="searchSelected"></app-roadinfo>
-                    </div>
-          </div>
-      </div>
-      <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=TyUzpYFjRW3kEB5JZw4oT7WkilcVpiwLPeqlVmU8g0rU5GE4JwkCu753bcbg"></script></span>
-  </div>
+                </div>
+            </div> 
+        </div>                               
+</mat-sidenav-content>
+</mat-sidenav-container>
