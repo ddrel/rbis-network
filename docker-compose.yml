@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
     app:
-        image: 'rbis-localroad'
+        image: 'dvaleros/rbis-localroad'
         build: '.'
         ports:
             - 3000:80

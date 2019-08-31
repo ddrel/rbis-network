@@ -1,0 +1,7 @@
+7a01dbf19406b921240685eefdb4ad014a426b42da36b720db08e80f0d1e69c8
+{"certificate":{"id":"bbc3b949-bb14-4094-bbd2-0442a9d62c5d","name":"le-cert-01","not_after":"0001-01-01T00:00:00Z","sha1_fingerprint":"","created_at":"2019-08-31T15:42:05Z","dns_names":["www.rbis-localroads.com","rbis-localroads.com"],"state":"pending","type":"lets_encrypt"}}
+{"certificates":[{"id":"b252c5f1-5f5d-4769-9bd3-a7ee456c546e","name":"rbis-localroads","not_after":"2019-11-29T07:42:38Z","sha1_fingerprint":"def9e3c9ccdc728ada7dcd17018c59b4073f6c05","created_at":"2019-08-31T08:42:36Z","dns_names":["rbis-localroads.com","www.rbis-localroads.com"],"state":"verified","type":"lets_encrypt"},{"id":"bbc3b949-bb14-4094-bbd2-0442a9d62c5d","name":"le-cert-01","not_after":"2019-11-29T14:42:09Z","sha1_fingerprint":"196fdf1d75a02f7ef11d42b943c22b9825d50c40","created_at":"2019-08-31T15:42:07Z","dns_names":["www.rbis-localroads.com","rbis-localroads.com"],"state":"verified","type":"lets_encrypt"},{"id":"e6de71e9-2e91-4ff7-8b29-f062caba93b8","name":"rbis-localroads2","not_after":"2019-11-29T14:06:13Z","sha1_fingerprint":"3c3bb1b0a70b2c40e0ef06c3f354bf90486b3855","created_at":"2019-08-31T15:06:12Z","dns_names":["rbis-localroads.com","www.rbis-localroads.com"],"state":"verified","type":"lets_encrypt"}],"links":{"pages":{}},"meta":{"total":3}}
+
+sudo kubectl apply -f deployment.digitalocean.yaml --kubeconfig=rbis-localroad-context.yaml
+sudo kubectl get svc --kubeconfig=rbis-localroad-context.yaml
+sudo kubectl get pods --kubeconfig=rbis-localroad-context.yaml

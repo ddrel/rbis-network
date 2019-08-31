@@ -1,0 +1,43 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 
+kind: Deployment 
+metadata: 
+  name: rbis-localroad 
+spec: 
+  selector: 
+    matchLabels: 
+      app: rbis-localroad 
+  replicas: 3 # tells deployment to run 2 pods matching the template 
+  template:
+    metadata: 
+      labels: 
+        app: rbis-localroad 
+    spec: 
+      containers: 
+      - name: rbis-localroad 
+        image: dvaleros/rbis-localroad:1.0
+        ports: 
+        - containerPort: 80 
+--- 
+# https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service  
+kind: Service 
+apiVersion: v1 
+metadata: 
+  name: rbis-localroad
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-protocol: "http"
+    service.beta.kubernetes.io/do-loadbalancer-algorithm: "round_robin"
+    service.beta.kubernetes.io/do-loadbalancer-tls-ports: "443"
+    service.beta.kubernetes.io/do-loadbalancer-certificate-id: "bbc3b949-bb14-4094-bbd2-0442a9d62c5d" 
+spec: 
+  selector: 
+    app: rbis-localroad 
+  ports: 
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 80 
+  type: LoadBalancer 
