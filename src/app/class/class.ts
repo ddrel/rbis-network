@@ -5,7 +5,9 @@ export class RoadSelection {
                     province:false,
                     city:false,
                     municipal:false,
-                    barangay:false
+                    barangay:false,
+                    national_primary:false,
+                    national_secondary:false,
                   },
       roadcondition:{
                     province:false,
@@ -54,7 +56,9 @@ export class RoadSelection {
                             province:e.roadsection.province,
                             city:e.roadsection.city,
                             municipal:e.roadsection.municipal,
-                            barangay:e.roadsection.barangay
+                            barangay:e.roadsection.barangay,
+                            national_primary:e.roadsection.national_primary,
+                            national_secondary:e.roadsection.national_secondary
                         },
             roadcondition:{                           
                             province_new:e.roadcondition.province_new,

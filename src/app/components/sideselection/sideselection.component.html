@@ -8,9 +8,11 @@
   </mat-radio-button>
     <mat-list role="list" class="mat-list-base-1">
             <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox1()" [disabled]="selectRoadType.type!='roadsection'" [(ngModel)]="selectRoadType.roadsection.province"><label [ngStyle]="getcolorlegend('#fc3ff2')" class="color-legend">&nbsp;</label>&nbsp;Province</mat-checkbox></mat-list-item>
-            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox1()" [disabled]="selectRoadType.type!='roadsection'" [(ngModel)]="selectRoadType.roadsection.city"><label [ngStyle]="getcolorlegend('#9ef740')" class="color-legend">&nbsp;</label>&nbsp;City</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox1()" [disabled]="selectRoadType.type!='roadsection'" [(ngModel)]="selectRoadType.roadsection.city"><label [ngStyle]="getcolorlegend('#57c5d4')" class="color-legend">&nbsp;</label>&nbsp;City</mat-checkbox></mat-list-item>
             <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox1()" [disabled]="selectRoadType.type!='roadsection'" [(ngModel)]="selectRoadType.roadsection.municipal"><label [ngStyle]="getcolorlegend('#5295f2')" class="color-legend">&nbsp;</label>&nbsp;Municipal</mat-checkbox></mat-list-item>
             <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox1()" [disabled]="selectRoadType.type!='roadsection'" [(ngModel)]="selectRoadType.roadsection.barangay"><label [ngStyle]="getcolorlegend('#f2bf52')" class="color-legend">&nbsp;</label>&nbsp;Barangay</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox1()" [disabled]="selectRoadType.type!='roadsection'" [(ngModel)]="selectRoadType.roadsection.national_primary"><label [ngStyle]="getcolorlegend('#820e0e')" class="color-legend">&nbsp;</label>&nbsp;National Primary</mat-checkbox></mat-list-item>
+            <mat-list-item role="listitem"><mat-checkbox (change)="setCheckbox1()" [disabled]="selectRoadType.type!='roadsection'" [(ngModel)]="selectRoadType.roadsection.national_secondary"><label [ngStyle]="getcolorlegend('#5cd428')" class="color-legend">&nbsp;</label>&nbsp;National Secondary</mat-checkbox></mat-list-item>
     </mat-list>
     <mat-radio-button class="radio-button"  [value]="'roadsurfacetype'">
         Surface Type

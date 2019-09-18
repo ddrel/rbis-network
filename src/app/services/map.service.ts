@@ -97,7 +97,7 @@ public vectorCityProvinceZoom = (color)=>{
   public OptionsVector(){
     return {
       vectorTileLayerStyles: {      
-        cities: this.vectorCityProvinceZoom("#9ef740"),
+        cities: this.vectorCityProvinceZoom("#57c5d4"), //9ef740
         cities_asphalt: this.vectorSurfaceTypeConditionZoom("#5a6068"),
         cities_concrete: this.vectorSurfaceTypeConditionZoom("#f29626"),
         cities_earth: this.vectorSurfaceTypeConditionZoom("#876f1b"),

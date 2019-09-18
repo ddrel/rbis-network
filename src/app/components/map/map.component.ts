@@ -292,7 +292,15 @@ export class MapComponent implements OnInit,AfterViewInit {
                     "city": this.mapservice.L().vectorGrid.protobuf(`${environment.geoserver}/data/cities/{z}/{x}/{y}.pbf`,_options).on("click",(e)=>{this.selectRoad(e)}),
                     "province" : this.mapservice.L().vectorGrid.protobuf(`${environment.geoserver}/data/provincial/{z}/{x}/{y}.pbf`,_options).on("click",(e)=>{this.selectRoad(e)}),
                     "municipal" : this.mapservice.L().vectorGrid.protobuf(`${environment.geoserver}/data/municipal/{z}/{x}/{y}.pbf`,_options).on("click",(e)=>{this.selectRoad(e)}),
-                    "barangay" : this.mapservice.L().vectorGrid.protobuf(`${environment.geoserver}/data/barangay/{z}/{x}/{y}.pbf`,_options).on("click",(e)=>{this.selectRoad(e)})    
+                    "barangay" : this.mapservice.L().vectorGrid.protobuf(`${environment.geoserver}/data/barangay/{z}/{x}/{y}.pbf`,_options).on("click",(e)=>{this.selectRoad(e)}), 
+                    "national_primary":esri.dynamicMapLayer({
+                          url:'https://app.georisk.gov.ph/arcgis/rest/services/DPWHPublic/LRS_Road_Network/MapServer',
+                          layers:[1]
+                    }),
+                    "national_secondary":esri.dynamicMapLayer({
+                          url:'https://app.georisk.gov.ph/arcgis/rest/services/DPWHPublic/LRS_Road_Network/MapServer',
+                          layers:[2]
+                    })   
                   }
    }
   ngAfterViewInit(){
