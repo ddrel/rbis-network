@@ -4,8 +4,8 @@ html, body { height: 100%; }
 /*#dedfe0*/
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;background-color:#000 } 
 
-.mat-radio-label-content {color:#5e6163;font-weight: 600}
-.mat-checkbox-layout .mat-checkbox-label {color:#5e6163;font-weight: 500}
+.mat-radio-label-content {color:#ffffff;font-weight: 580}
+.mat-checkbox-layout .mat-checkbox-label {color:#ffffff;font-weight: 300}
 /*
 .mat-radio-outer-circle {
     border-color: #f8f9fa;

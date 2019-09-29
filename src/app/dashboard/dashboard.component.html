@@ -3,7 +3,7 @@
         [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over' : 'side'"
         [opened]="(isHandset$ | async) === false"        >
-       <mat-toolbar>Menu Layer</mat-toolbar>
+       <mat-toolbar><img src="assets/image/rbis-logo3.png" alt="Road and Bridge Information System" style="width:185px;height:auto;"></mat-toolbar>
         <app-sideselection (toggleDataChange)="event_changedata($event)"></app-sideselection>
     </mat-sidenav>
 <mat-sidenav-content>
